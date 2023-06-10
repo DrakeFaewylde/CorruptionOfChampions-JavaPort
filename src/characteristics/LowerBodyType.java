@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public enum LowerBodyType {
 	NORMAL,
@@ -19,5 +19,5 @@ public enum LowerBodyType {
 	SPIDER,
 	DRIDER,
 	FOX,
-	DRAGON;
+	DRAGON
 }

@@ -1,7 +1,7 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public class Tail {
-	private Type type;
+	private final Type type;
 	private double venom;
 	
 	public Tail(Type type, double venom) {
@@ -35,8 +35,8 @@ public class Tail {
 		public final boolean hasVenom;
 		public final double rechargeAmount;
 		
-		private Type() { this(false, 0.0); }
-		private Type(boolean hasVenom, double rechargeAmount) {
+		Type() { this(false, 0.0); }
+		Type(boolean hasVenom, double rechargeAmount) {
 			this.hasVenom = hasVenom;
 			this.rechargeAmount = (hasVenom ? rechargeAmount : 0.0);
 		}

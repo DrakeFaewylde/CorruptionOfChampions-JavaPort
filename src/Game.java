@@ -1,6 +1,6 @@
-package com.fenoxo.coc.zadenikt_java_port;
+package src;
 
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
+import src.actors.Actor;
 
 public class Game {
     private static Game instance;

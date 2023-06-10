@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port;
+package src;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -7,13 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
-import com.fenoxo.coc.zadenikt_java_port.util.UIHelper;
+import src.util.UIHelper;
 
-@SuppressWarnings("serial")
 public class ChampionsApplication extends JFrame implements WindowListener, ChampionsController {
     private static ChampionsApplication instance;
     
-    private ChampionsUI ui;
+    private final ChampionsUI ui;
     
     private ChampionsApplication(String ... args) {
         super("Corruption of Champions (Java Port) " + Constants.VERSION);

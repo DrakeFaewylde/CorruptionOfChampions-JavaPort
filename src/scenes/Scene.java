@@ -1,7 +1,7 @@
-package com.fenoxo.coc.zadenikt_java_port.scenes;
+package src.scenes;
 
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
-import com.fenoxo.coc.zadenikt_java_port.actors.Player;
+import src.actors.Actor;
+import src.actors.Player;
 
 public interface Scene {
 	void displayText(Player me, Actor enemy); // me and enemy are null if not applicable

@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 
 public enum BodyType {
@@ -7,9 +7,10 @@ public enum BodyType {
 	THICK("Thick", "Curvy"),
 	OPPGEN("Girly", "Tomboyish");
 	
-	protected String m, f;
+	private final String m;
+	private final String f;
 	
-	private BodyType(String forMales, String forFemales) {
+	BodyType(String forMales, String forFemales) {
 		this.m = forMales;
 		this.f = forFemales;
 	}

@@ -1,14 +1,12 @@
-package com.fenoxo.coc.zadenikt_java_port;
+package src;
 
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 
-@SuppressWarnings("serial")
 public class ChampionsUI extends JPanel {
-    private JPanel sidebar;
-    private JEditorPane output;
-    private JButton[] buttons = new JButton[10];
+    private final JEditorPane output;
+    private final JButton[] buttons = new JButton[10];
     
     public ChampionsUI() {
         super(null);
@@ -17,7 +15,7 @@ public class ChampionsUI extends JPanel {
         output.setBounds(200, 0, 600, 500);
         output.setEditable(false);
         this.add(output);
-        sidebar = new JPanel(null);
+        JPanel sidebar = new JPanel(null);
         sidebar.setBounds(0, 0, 200, 500);
         this.add(sidebar);
         JPanel buttonPanel = new JPanel(null);

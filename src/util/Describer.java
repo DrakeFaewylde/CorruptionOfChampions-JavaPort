@@ -1,28 +1,29 @@
-package com.fenoxo.coc.zadenikt_java_port.util;
+package src.util;
 
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.ArmType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Cock;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.EarType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.EyeType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.FaceType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Gender;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Hair;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.HornType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.LowerBodyType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Skin;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.StatusEffect;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Tail;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.TongueType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Vagina;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.WingType;
+import src.actors.Actor;
+import src.characteristics.ArmType;
+import src.characteristics.Cock;
+import src.characteristics.EarType;
+import src.characteristics.EyeType;
+import src.characteristics.FaceType;
+import src.characteristics.Gender;
+import src.characteristics.Hair;
+import src.characteristics.HornType;
+import src.characteristics.LowerBodyType;
+import src.characteristics.Skin;
+import src.characteristics.StatusEffect;
+import src.characteristics.Tail;
+import src.characteristics.TongueType;
+import src.characteristics.Vagina;
+import src.characteristics.WingType;
 
+@SuppressWarnings("SameReturnValue")
 public class Describer {
     public static String describeBodyType(Actor actor) {
-        Boolean curvy = (Gender.get(actor) == Gender.HERM 
+        boolean curvy = (Gender.get(actor) == Gender.HERM
                 || actor.largestBreasts().getSize() > 3
                 || actor.getHips() > 7 || actor.getButt() > 7);
-        Boolean curvier = (Gender.get(actor) == Gender.HERM 
+        boolean curvier = (Gender.get(actor) == Gender.HERM
                 || actor.largestBreasts().getSize() > 4
                 || actor.getHips() > 10 || actor.getButt() > 10);
         return (isSkeletal(actor)) ?
@@ -80,7 +81,7 @@ public class Describer {
     }
 
     public static Integer humanScore(Actor actor) {
-        Integer score = getScore(
+        return getScore(
 			(actor.getFace() == FaceType.NORMAL),
             (actor.getSkin().getType() == Skin.Type.NORMAL),
             (actor.getHorns() == HornType.NONE),
@@ -89,10 +90,9 @@ public class Describer {
             (actor.getLowerBody() == LowerBodyType.NORMAL),
             (actor.getCockCount() == 1 && actor.getCockTypeCount(Cock.Type.NORMAL) == 1),
             (actor.getBreastRowsCount() == 1 && actor.getSkin().getType() == Skin.Type.NORMAL));
-        return score;
     }
     public static Integer demonScore(Actor actor) {
-        Integer score = getScore(
+        return getScore(
             (actor.getHorns() == HornType.DEMONIC),
             (actor.getTail().getType() == Tail.Type.DEMONIC),
             (actor.getWings() == WingType.DEMONIC),
@@ -102,7 +102,6 @@ public class Describer {
             (actor.getLowerBody() == LowerBodyType.DEMON_CLAWS),
             (actor.getLowerBody() == LowerBodyType.DEMON_HEELS),
             (actor.getCockTypeCount(Cock.Type.DEMON) > 0));
-        return score;
     }
     public static Integer minotaurScore(Actor actor) {
         Integer score = getScore(
@@ -140,15 +139,14 @@ public class Describer {
         return score;
     }
     public static Integer sandTrapScore(Actor actor) {
-        Integer score = getScore(
+        return getScore(
                 (actor.hasStatusEffect(StatusEffect.BLACK_NIPPLES)),
                 (actor.hasVagina() && actor.getVagina().getType() == Vagina.Type.SANDTRAP),
                 (actor.getEyes() == EyeType.SAND_TRAP),
                 (actor.getWings() == WingType.SAND_TRAP));
-        return score;
     }
     public static Integer beeScore(Actor actor) {
-        Integer score = getScore(
+        return getScore(
                 (actor.getHair().getColour() == Hair.Colour.SHINY_BLACK),
                 (actor.getHair().getColour() == Hair.Colour.BLACK_AND_YELLOW),
                 (actor.hasAntennae()),
@@ -157,7 +155,6 @@ public class Describer {
                 (actor.getLowerBody() == LowerBodyType.BEE && actor.hasVagina()),
                 (actor.getTail().getType() == Tail.Type.BEE),
                 (actor.getWings() == WingType.BEE || actor.getWings() == WingType.BEE_LARGE));
-        return score;
     }
     public static Integer dogScore(Actor actor) {
         Integer score = getScore(
@@ -205,7 +202,7 @@ public class Describer {
         return score;
     }
     public static Integer lizardScore(Actor actor) {
-        Integer score = getScore(
+        return getScore(
                 (actor.getFace() == FaceType.LIZARD),
                 (actor.getEars() == EarType.SNAKE),
                 (actor.getTail().getType() == Tail.Type.LIZARD),
@@ -213,7 +210,6 @@ public class Describer {
                 (actor.getCockTypeCount(Cock.Type.LIZARD) > 0),
                 (actor.getHorns() == HornType.LIZARD || actor.getHorns() == HornType.QUAD_LIZARD),
                 (actor.getSkin().getType() == Skin.Type.SCALES));
-        return score;
     }
     public static Integer spiderScore(Actor actor) {
         Integer score = getScore(
@@ -310,13 +306,12 @@ public class Describer {
         return score;
     }
     public static Integer gooScore(Actor actor) {
-        Integer score = getScore(
+        return getScore(
                 (actor.getHair().getType() == Hair.Type.GOO), // 3
                 (actor.getSkin().getType() == Skin.Type.GOO), // "slimy"
                 (actor.getLowerBody() == LowerBodyType.GOO), // 8
                 (actor.getVaginaCapacity() > 9000),
                 (actor.hasStatusEffect(StatusEffect.SLIME_CRAVING)));
-        return score;
     }
     public static Integer nagaScore(Actor actor) {
         Integer score = getScore(
@@ -376,11 +371,10 @@ public class Describer {
         return score;
     }
     public static Integer sharkScore(Actor actor) {
-        Integer score = getScore(
+        return getScore(
                 (actor.getFace() == FaceType.SHARK),
                 (actor.getWings() == WingType.SHARK_FIN),
                 (actor.getTail().getType() == Tail.Type.SHARK));
-        return score;
     }
     public static Integer mutantScore(Actor actor) {
         Integer score = getScore(
@@ -397,7 +391,7 @@ public class Describer {
         return score;
     }
     private static Integer getScore(Boolean... values) { // Why do I feel like you came from Lisp...
-        Integer score = 0;
+        int score = 0;
         for (Boolean value : values) {
             score += value ? 1 : 0;
         }

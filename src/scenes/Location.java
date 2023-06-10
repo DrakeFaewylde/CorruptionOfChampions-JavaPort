@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.scenes;
+package src.scenes;
 
 public enum Location {
     FOREST(true),
@@ -10,9 +10,9 @@ public enum Location {
     PLAINS(true),
     SWAMP(true);
     
-    private Boolean exploreMenu;
+    private final Boolean exploreMenu;
     
-    private Location(Boolean goesInExploreMenu) {
+    Location(Boolean goesInExploreMenu) {
         this.exploreMenu = goesInExploreMenu;
     }
     

@@ -1,8 +1,8 @@
-package com.fenoxo.coc.zadenikt_java_port.scenes;
+package src.scenes;
 
-import com.fenoxo.coc.zadenikt_java_port.Game;
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
-import com.fenoxo.coc.zadenikt_java_port.actors.Player;
+import src.Game;
+import src.actors.Actor;
+import src.actors.Player;
 
 public class SceneExplore implements Scene {
     public void displayText(Player me, Actor enemy) {

@@ -1,31 +1,33 @@
-package com.fenoxo.coc.zadenikt_java_port.actors;
+package src.actors;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fenoxo.coc.zadenikt_java_port.characteristics.ArmType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.EarType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.EyeType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.FaceType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Hair;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.HornType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.LowerBodyType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Skin;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.TongueType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.WingType;
-import com.fenoxo.coc.zadenikt_java_port.equipment.Armour;
-import com.fenoxo.coc.zadenikt_java_port.equipment.Item;
-import com.fenoxo.coc.zadenikt_java_port.equipment.Weapon;
-import com.fenoxo.coc.zadenikt_java_port.scenes.Location;
+import src.characteristics.ArmType;
+import src.characteristics.EarType;
+import src.characteristics.EyeType;
+import src.characteristics.FaceType;
+import src.characteristics.Hair;
+import src.characteristics.HornType;
+import src.characteristics.LowerBodyType;
+import src.characteristics.Skin;
+import src.characteristics.TongueType;
+import src.characteristics.WingType;
+import src.equipment.Armour;
+import src.equipment.Item;
+import src.equipment.Weapon;
+import src.scenes.Location;
 
 public class Player extends Actor {
-    private Item itemSlots[] = { null, null, null }; //This can be increased by setItemSlotsMax()
-    private Integer itemSlotCounts[] = { 0, 0, 0 };
+    private Item[] itemSlots= { null, null, null }; //This can be increased by setItemSlotsMax()
+    private Integer[] itemSlotCounts= { 0, 0, 0 };
     private String notes;
-    private Map<String, Actor> followers, lovers, slaves;
-    private ArrayList<Location> places;
+    private final Map<String, Actor> followers;
+    private final Map<String, Actor> lovers;
+    private final Map<String, Actor> slaves;
+    private final ArrayList<Location> places;
     private Integer numberOfTimesExplored;
     
     public Player(String playerName) {
@@ -84,24 +86,22 @@ public class Player extends Actor {
         this.numberOfTimesExplored = 0;
     }
     
-    public Player addItem(Item i) { //TODO Add inventory toss-out.
+    public void addItem(Item i) { //TODO Add inventory toss-out.
         int slot = this.firstEmptyItemSlot();
         if(slot == -1) {
-            System.out.println(String.format("%s would've got the item %s, but their inventory is full!", this.toString(), i.name));
+            System.out.printf("%s would've got the item %s, but their inventory is full!%n", this, i.name);
         } else {
-            System.out.println(String.format("%s got the item %s!", this.toString(), i.name));
+            System.out.printf("%s got the item %s!%n", this, i.name);
             this.itemSlots[slot] = i;
         }
-        return this;
     }
-    public Player removeItem(int slot) {
+    public void removeItem(int slot) {
         if (this.itemSlots[slot] != null && this.itemSlotCounts[slot] > 0) {
             this.itemSlots[slot].count--;
             if (this.itemSlots[slot].count == 0) {
                 this.itemSlots[slot] = null;
             }
         }
-        return this;
     }
     public Player removeItem(Item item, Integer count) {
         for(int i = 0; i < count; i++) {
@@ -116,9 +116,8 @@ public class Player extends Actor {
         this.useItem(this.itemSlots[i]);
         return this;
     }
-    public Player useItem(Item i) {
+    public void useItem(Item i) {
         i.action(this); //TODO See if this actually works.
-        return this;
     }
     public int firstItemSlot(Item item) {
         for(int i = 0; i < this.itemSlots.length; i++) {
@@ -149,12 +148,11 @@ public class Player extends Actor {
         this.equipWeapon(w);
         return this;
     }
-    public Player unequipWeapon() {
+    public void unequipWeapon() {
         if(this.getWeapon() != null){
             this.addItem(this.getWeapon());
             this.unequipWeapon();
         }
-        return this;
     }
     public Player equipArmour(int slot) {
         Armour a = (Armour)this.itemSlots[slot];
@@ -162,12 +160,11 @@ public class Player extends Actor {
         this.equipArmour(a);
         return this;
     }
-    public Player unequipArmour() {
+    public void unequipArmour() {
         if(this.getArmour() != null){
             this.addItem(this.getArmour());
             this.unequipArmour();
         }
-        return this;
     }
     public Player setNotes(String notes) {
         this.notes = notes;

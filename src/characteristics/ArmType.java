@@ -1,7 +1,7 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public enum ArmType {
 	NORMAL,
 	HARPY,
-	SPIDER;
+	SPIDER
 }

@@ -1,5 +1,5 @@
-package com.fenoxo.coc.zadenikt_java_port;
+package src;
 
 public interface ChampionsController {
-    public ChampionsUI getUI();
+    ChampionsUI getUI();
 }

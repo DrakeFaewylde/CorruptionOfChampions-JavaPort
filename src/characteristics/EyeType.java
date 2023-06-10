@@ -1,7 +1,7 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public enum EyeType {
 	NORMAL,
 	SPIDER,
-	SAND_TRAP;
+	SAND_TRAP
 }

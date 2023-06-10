@@ -1,32 +1,32 @@
-package com.fenoxo.coc.zadenikt_java_port.actors;
+package src.actors;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.fenoxo.coc.zadenikt_java_port.characteristics.ArmType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Balls;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.BreastRow;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Cock;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.EarType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.EyeType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.FaceType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Gender;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Hair;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.HornType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.LowerBodyType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Perk;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Skin;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.StatusEffect;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Tail;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.TongueType;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Vagina;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.WingType;
-import com.fenoxo.coc.zadenikt_java_port.equipment.Armour;
-import com.fenoxo.coc.zadenikt_java_port.equipment.Weapon;
-import com.fenoxo.coc.zadenikt_java_port.util.RuntimeMostest;
-import com.fenoxo.coc.zadenikt_java_port.util.RuntimeTest;
+import src.characteristics.ArmType;
+import src.characteristics.Balls;
+import src.characteristics.BreastRow;
+import src.characteristics.Cock;
+import src.characteristics.EarType;
+import src.characteristics.EyeType;
+import src.characteristics.FaceType;
+import src.characteristics.Gender;
+import src.characteristics.Hair;
+import src.characteristics.HornType;
+import src.characteristics.LowerBodyType;
+import src.characteristics.Perk;
+import src.characteristics.Skin;
+import src.characteristics.StatusEffect;
+import src.characteristics.Tail;
+import src.characteristics.TongueType;
+import src.characteristics.Vagina;
+import src.characteristics.WingType;
+import src.equipment.Armour;
+import src.equipment.Weapon;
+import src.util.RuntimeMostest;
+import src.util.RuntimeTest;
 
 public abstract class Actor {
 	// Name and Description
@@ -40,8 +40,8 @@ public abstract class Actor {
     // Money
     private Integer gems;
     // Effects
-    private Set<Perk> perks = new HashSet<>();
-    private Set<StatusEffect> statusEffects = new HashSet<>();
+    private final Set<Perk> perks = new HashSet<>();
+    private final Set<StatusEffect> statusEffects = new HashSet<>();
     // Equipment
     private Weapon weapon;
     private Armour armour;
@@ -63,8 +63,8 @@ public abstract class Actor {
     	// TODO!!!
     // Sex Organs
     private Balls balls;
-    private List<Cock> cocks = new ArrayList<>();
-    private List<BreastRow> breasts = new ArrayList<>();
+    private final List<Cock> cocks = new ArrayList<>();
+    private final List<BreastRow> breasts = new ArrayList<>();
     private Vagina vagina;
     
     // Name and Description
@@ -81,9 +81,8 @@ public abstract class Actor {
     	this.name = name;
     	return this;
     }
-    public Actor setDescription(String desc) {
+    public void setDescription(String desc) {
     	this.description = desc;
-    	return this;
     }
     // Base Stats
     public Integer getStrength() {
@@ -154,9 +153,8 @@ public abstract class Actor {
     	this.sensitivity = sensitivity;
     	return this;
     }
-    public Actor setCorruption(Integer corruption) {
+    public void setCorruption(Integer corruption) {
     	this.corruption = corruption;
-    	return this;
     }
     public Actor setHealth(Integer health) {
     	this.health = health;
@@ -166,9 +164,8 @@ public abstract class Actor {
     	this.lust = lust;
     	return this;
     }
-    public Actor setFatigue(Integer fatigue) {
+    public void setFatigue(Integer fatigue) {
     	this.fatigue = fatigue;
-    	return this;
     }
     // Level Stats
     public Integer getXP() {
@@ -215,10 +212,9 @@ public abstract class Actor {
     	this.checkForLevelUp();
     	return this;
     }
-    public Actor setTeaseLevel(Integer level) {
+    public void setTeaseLevel(Integer level) {
     	this.teaseLevel = level;
     	this.checkForLevelUp();
-    	return this;
     }
     public void checkForLevelUp() {
     	while(this.getXP() >= this.getXPToLevelUp()) {
@@ -234,9 +230,8 @@ public abstract class Actor {
     public Integer getGems() {
     	return this.gems;
     }
-    public Actor setGems(Integer gems) {
+    public void setGems(Integer gems) {
     	this.gems = gems;
-    	return this;
     }
     // Effects
     public Actor addStatusEffect(StatusEffect se) {
@@ -281,22 +276,19 @@ public abstract class Actor {
     public Actor equipWeapon(Weapon w) {
         this.unequipWeapon();
         this.weapon = w;
-        System.out.println(String.format("%s equipped the weapon %s!", this.toString(), this.weapon.name));
+        System.out.printf("%s equipped the weapon %s!%n", this, this.weapon.name);
         return this;
     }
-    public Actor unequipWeapon() {
+    public void unequipWeapon() {
         this.weapon = null;
-        return this;
     }
-    public Actor equipArmour(Armour newArmour) {
+    public void equipArmour(Armour newArmour) {
         this.unequipArmour();
         this.armour = newArmour;
-        System.out.println(String.format("%s equipped the armor %s!", this.toString(), newArmour.name));
-        return this;
+        System.out.printf("%s equipped the armor %s!%n", this, newArmour.name);
     }
-    public Actor unequipArmour() {
+    public void unequipArmour() {
         this.armour = null;
-        return this;
     }
     // Appearance Stats
     public Double getFemininity() {
@@ -373,9 +365,8 @@ public abstract class Actor {
     	this.hips = hips;
     	return this;
     }
-    public Actor setButt(Double butt) {
+    public void setButt(Double butt) {
     	this.butt = butt;
-    	return this;
     }
     public Actor setHair(Hair hair) {
     	this.hair = hair;
@@ -421,9 +412,8 @@ public abstract class Actor {
     	this.tail = tail;
     	return this;
     }
-    public Actor setAntennae(Boolean antennae) {
+    public void setAntennae(Boolean antennae) {
     	this.hasAntennae = antennae;
-    	return this;
     }
     // Piercings
     	// TODO!!!
@@ -444,11 +434,11 @@ public abstract class Actor {
     	return this;
     }
     public Cock firstCock() {
-    	return this.firstCock(new RuntimeTest<Cock>() {
-    		public Boolean test(Cock cock) {
-    			return true;
-    		}
-    	});
+    	return this.firstCock(new RuntimeTest<>() {
+            public Boolean test(Cock cock) {
+                return true;
+            }
+        });
     }
     public Cock firstCock(RuntimeTest<Cock> test) {
     	for(Cock c : this.cocks) {
@@ -478,10 +468,10 @@ public abstract class Actor {
     	return count;
     }
     public Integer getCockTypeCount(final Cock.Type type) {
-        return this.sumCocks(new RuntimeMostest<Cock>() {
-        	public Double value(Cock c) {
-        		return c.getType() == type ? 1.0 : 0.0;
-        	}
+        return this.sumCocks(new RuntimeMostest<>() {
+            public Double value(Cock c) {
+                return c.getType() == type ? 1.0 : 0.0;
+            }
         }).intValue();
     }
     public Boolean hasCock() {
@@ -515,31 +505,31 @@ public abstract class Actor {
     	return count;
     }
     public BreastRow largestBreasts() {
-        return this.maximizeBreasts(new RuntimeMostest<BreastRow>() {
-        	public Double value(BreastRow b) {
-        		return b.getSize();
-        	}
+        return this.maximizeBreasts(new RuntimeMostest<>() {
+            public Double value(BreastRow b) {
+                return b.getSize();
+            }
         });
     }
     public BreastRow lactatestBreasts() {
-        return this.maximizeBreasts(new RuntimeMostest<BreastRow>() {
-        	public Double value(BreastRow b) {
-        		return b.getLactation();
-        	}
+        return this.maximizeBreasts(new RuntimeMostest<>() {
+            public Double value(BreastRow b) {
+                return b.getLactation();
+            }
         });
     }
     public Integer getBreastCount() {
-        return this.sumBreasts(new RuntimeMostest<BreastRow>() {
-        	public Double value(BreastRow b) {
-        		return b.getBreastsInRow().doubleValue();
-        	}
+        return this.sumBreasts(new RuntimeMostest<>() {
+            public Double value(BreastRow b) {
+                return b.getBreastsInRow().doubleValue();
+            }
         }).intValue();
     }
     public Integer getNippleCount() {
-        return this.sumBreasts(new RuntimeMostest<BreastRow>() {
-        	public Double value(BreastRow b) {
-        		return new Integer(b.getBreastsInRow() * b.getNipplesPerBreast()).doubleValue();
-        	}
+        return this.sumBreasts(new RuntimeMostest<>() {
+            public Double value(BreastRow b) {
+                return Integer.valueOf(b.getBreastsInRow() * b.getNipplesPerBreast()).doubleValue();
+            }
         }).intValue();
     }
     public Boolean hasFuckableNipples() {
@@ -556,9 +546,8 @@ public abstract class Actor {
     public Vagina getVagina() {
     	return this.vagina;
     }
-    public Actor setVagina(Vagina vagina) {
+    public void setVagina(Vagina vagina) {
     	this.vagina = vagina;
-    	return this;
     }
     public Boolean hasVagina() {
         return this.vagina != null;
@@ -576,7 +565,7 @@ public abstract class Actor {
         if(!this.hasVagina()) {
             return 0.0;
         }
-        Double capacity = 0.0;
+        double capacity = 0.0;
         if(this.lowerBody == LowerBodyType.NAGA) {
             capacity += 20.0;
         }

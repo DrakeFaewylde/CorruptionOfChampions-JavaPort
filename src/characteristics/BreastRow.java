@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public class BreastRow {
 	private Integer breastsInRow;

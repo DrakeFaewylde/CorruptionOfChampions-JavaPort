@@ -8,6 +8,7 @@
 # High Priority
     Not game breaking, but these should be handled before the next version update.
 
+    [] Replace JApplet dependencies with JavaFX
     [] Finish descriptions
     [] Look into replacing Double with int; look into replacing Integer with int
 

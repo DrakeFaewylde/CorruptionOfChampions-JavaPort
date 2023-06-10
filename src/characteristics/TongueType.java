@@ -1,8 +1,8 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public enum TongueType {
 	NORMAL,
 	SNAKE,
 	DEMON,
-	DRAGON;
+	DRAGON
 }

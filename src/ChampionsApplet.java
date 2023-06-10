@@ -1,9 +1,8 @@
-package com.fenoxo.coc.zadenikt_java_port;
+package src;
 
 import javax.swing.JApplet;
 
-@SuppressWarnings("serial")
-public class ChampionsApplet extends JApplet {
+public class ChampionsApplet extends JApplet { // TODO Convert JApplet requirement to JavaFX as a means of being rid of these errors
     private static ChampionsApplet instance;
     	
     public ChampionsApplet() {

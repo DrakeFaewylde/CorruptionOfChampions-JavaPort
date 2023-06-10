@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.actors;
+package src.actors;
 
 public class ActorRathazul extends Actor {
     protected Boolean grownThorns = false;

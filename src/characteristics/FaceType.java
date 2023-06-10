@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public enum FaceType {
 	NORMAL,
@@ -13,5 +13,5 @@ public enum FaceType {
 	KANGAROO,
 	SPIDER,
 	FOX,
-	DRAGON;
+	DRAGON
 }

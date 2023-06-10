@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public enum EarType {
 	NORMAL,
@@ -11,5 +11,5 @@ public enum EarType {
 	RABBIT,
 	KANGAROO,
 	FOX,
-	DRAGON;
+	DRAGON
 }

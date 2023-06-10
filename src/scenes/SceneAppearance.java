@@ -1,55 +1,56 @@
-package com.fenoxo.coc.zadenikt_java_port.scenes;
+package src.scenes;
 
-import com.fenoxo.coc.zadenikt_java_port.Game;
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
-import com.fenoxo.coc.zadenikt_java_port.actors.Player;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Race;
-import com.fenoxo.coc.zadenikt_java_port.util.Describer;
+import src.Game;
+import src.actors.Actor;
+import src.actors.Player;
+import src.characteristics.Race;
+import src.util.Describer;
 
+@SuppressWarnings({"SwitchStatementWithTooFewBranches", "EnhancedSwitchMigration"})
 public class SceneAppearance implements Scene {
-  public void displayText(Player me, Actor enemy) {
-    Game.getUI().clear();
-    //Race
-    if(Race.getRace(me) != Race.HUMAN) {
-      Game.getUI().write(
-          "You began your journey as a human, but gave that up as you explored the "
-          + "dangers of this realm. ");
-    }
-    //Height
-    Game.getUI().writef(
-        "You are a %d foot %d inch tall %s, with %s. ",
-        (me.getHeight()/12), (me.getHeight()%12), Race.get(me), Describer.describeBodyType(me));
-    //Equipment
-    Game.getUI().writef(
-        "<b>You are currently wearing your %s and using your %s as a weapon.</b> ",
-        me.getArmour().name, me.getWeapon().name);
-    //Faces
-    switch(me.getFace()) {
-    case FOX:
-      Game.getUI().write("You have a tapered, shrewd-looking vulpine face with a speckling of "
-          + "downward-curved whiskers just behind the nose. ");
-      switch(me.getSkin().getType()) {
-      case FUR:
+    public void displayText(Player me, Actor enemy) {
+        Game.getUI().clear();
+        //Race
+        if(Race.getRace(me) != Race.HUMAN) {
+            Game.getUI().write(
+                    "You began your journey as a human, but gave that up as you explored the "
+                            + "dangers of this realm. ");
+        }
+        //Height
         Game.getUI().writef(
-            "A coat of %s decorates your muzzle. ",
-            Describer.describeSkin(me));
-        break;
-      case SCALES:
+                "You are a %d foot %d inch tall %s, with %s. ",
+                (me.getHeight()/12), (me.getHeight()%12), Race.get(me), Describer.describeBodyType(me));
+        //Equipment
         Game.getUI().writef(
-            "Strangely, %s adorn every inch of your animalistic visage. ",
-            Describer.describeSkin(me));
-        break;
-      case NORMAL:
-      default:
-        Game.getUI().writef(
-            "Oddly enough, there's no fur on your animalistic muzzle, just %s. ",
-            Describer.describeSkin(me));
-        break;
-      }
-      break;
-    default: // TODO Add default face case. Also other cases.
-      break;
-    }
+                "<b>You are currently wearing your %s and using your %s as a weapon.</b> ",
+                me.getArmour().name, me.getWeapon().name);
+        //Faces
+        switch(me.getFace()) {
+            case FOX:
+                Game.getUI().write("You have a tapered, shrewd-looking vulpine face with a speckling of "
+                        + "downward-curved whiskers just behind the nose. ");
+                switch (me.getSkin().getType()) {
+                    case FUR:
+                        Game.getUI().writef(
+                                "A coat of %s decorates your muzzle. ",
+                                Describer.describeSkin(me));
+                        break;
+                    case SCALES:
+                        Game.getUI().writef(
+                                "Strangely, %s adorn every inch of your animalistic visage. ",
+                                Describer.describeSkin(me));
+                        break;
+                    case NORMAL, GOO:
+                        Game.getUI().writef(
+                                "Oddly enough, there's no fur on your animalistic muzzle, just %s. ",
+                                Describer.describeSkin(me));
+                        break;
+                    // TODO Figure out how to add a default branch without IntelliJ bitching about it
+                }
+                break;
+            default: // TODO Add default face case. Also other cases.
+                break;
+        }
     /*if(me.faceType == 0 || me.faceType == 4 || me.faceType == 8 || me.faceType == 10) {
       if(me.skinType == 0 || me.skinType == 3) applet.write("  Your face is human in shape and structure, with " + me.skin() + ".", false);
       if(me.skinType == 1) applet.write("  Under your " + me.skinFurScales() + " you have a human-shaped head with " + me.skin(true,false) + ".", false);
@@ -725,24 +726,24 @@ public class SceneAppearance implements Scene {
     }
     //MONEY!
      * */
-    switch(me.getGems()) {
-    case 0:
-      Game.getUI().write("\n\n<b>Your money-purse is devoid of any currency.");
-      break;
-    case 1:
-      Game.getUI().write("\n\n<b>You have 1 shining gem, collected in your travels.");
-      break;
-    default:
-      Game.getUI().writef(
-          "\n\n<b>You have %d shining gems, collected in your travels.", me.getGems());
+        switch(me.getGems()) {
+            case 0:
+                Game.getUI().write("\n\n<b>Your money-purse is devoid of any currency.");
+                break;
+            case 1:
+                Game.getUI().write("\n\n<b>You have 1 shining gem, collected in your travels.");
+                break;
+            default:
+                Game.getUI().writef(
+                        "\n\n<b>You have %d shining gems, collected in your travels.", me.getGems());
+        }
+        Game.getUI().setButton(1, "Next");
     }
-    Game.getUI().setButton(1, "Next");
-  }
-  
-  public Scene action(Player me, Actor enemy, int button) {
-    if(button == 1) {
-      throw new RuntimeException("Implement me!!!"); //TODO
+
+    public Scene action(Player me, Actor enemy, int button) {
+        if(button == 1) {
+            throw new RuntimeException("Implement me!!!"); //TODO
+        }
+        return null;
     }
-    return null;
-  }
 }

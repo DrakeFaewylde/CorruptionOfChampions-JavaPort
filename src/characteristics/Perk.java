@@ -1,8 +1,9 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
-import com.fenoxo.coc.zadenikt_java_port.ChampionsApplet;
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
+import src.ChampionsApplet;
+import src.actors.Actor;
 
+@SuppressWarnings({"unused", "EmptyMethod"})
 public class Perk {
     public static final Perk NULL = null;
     
@@ -144,18 +145,18 @@ public class Perk {
     public static final Perk ITEM_PERK_INCORPOREALITY = new Perk("Incorporeality");
     public static final Perk ITEM_PERK_OVIPOSITION = new Perk("Oviposition");
     
-    protected String name;
+    protected final String name;
 
     private Perk(String name) {
         this.name = name;
     }
 
     public void add(Actor me) {
-        System.out.println(String.format("%s got the perk %s!", me.toString(), this.name));
+        System.out.printf("%s got the perk %s!%n", me.toString(), this.name);
     }
 
     public void remove(Actor me) {
-        System.out.println(String.format("%s lost the perk %s!", me.toString(), this.name));
+        System.out.printf("%s lost the perk %s!%n", me.toString(), this.name);
     }
 
     // For overriding, if necessary

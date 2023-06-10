@@ -1,6 +1,6 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
+import src.actors.Actor;
 
 public enum Gender {
 	NONE, MALE, FEMALE, HERM;

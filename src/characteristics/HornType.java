@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public enum HornType {
 	NONE,
@@ -6,5 +6,5 @@ public enum HornType {
 	MINOTAUR,
 	LIZARD,
 	QUAD_LIZARD,
-	ANTLERS;
+	ANTLERS
 }

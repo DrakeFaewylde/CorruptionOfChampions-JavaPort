@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public enum WingType {
 	NONE,
@@ -10,5 +10,5 @@ public enum WingType {
 	DEMONIC,
 	DEMONIC_LARGE,
 	SHARK_FIN,
-	SAND_TRAP;
+	SAND_TRAP
 }

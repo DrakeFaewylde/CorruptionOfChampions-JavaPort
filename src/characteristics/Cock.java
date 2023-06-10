@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 /**
  * NOTES: thickness is now diameter.
@@ -8,7 +8,7 @@ package com.fenoxo.coc.zadenikt_java_port.characteristics;
  **/
 
 public class Cock {
-  protected Type type;
+  protected final Type type;
   protected double length, diameter;
 
   public Cock(double length, double diameter) {
@@ -187,6 +187,6 @@ public class Cock {
 
   
   public enum Type {
-    NORMAL, HORSE, DOG, DEMON, TENTACLE, CAT, LIZARD, ANEMONE, KANGAROO, DRAGON;
+    NORMAL, HORSE, DOG, DEMON, TENTACLE, CAT, LIZARD, ANEMONE, KANGAROO, DRAGON
   }
 }

@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public class Vagina {
 	private Type type = Type.NORMAL;
@@ -44,9 +44,8 @@ public class Vagina {
 		return virgin;
 	}
 	
-	public Vagina setType(Type type) {
+	public void setType(Type type) {
 		this.type = type;
-		return this;
 	}
 	public Vagina setLooseness(double looseness) {
 		this.looseness = looseness;
@@ -67,6 +66,6 @@ public class Vagina {
 	
 	public enum Type {
 		NORMAL,
-		SANDTRAP;
+		SANDTRAP
 	}
 }

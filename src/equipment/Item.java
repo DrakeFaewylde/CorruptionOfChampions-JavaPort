@@ -1,6 +1,6 @@
-package com.fenoxo.coc.zadenikt_java_port.equipment;
+package src.equipment;
 
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
+import src.actors.Actor;
 
 public class Item {
 	public final String shortName, name, description;

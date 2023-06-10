@@ -1,7 +1,7 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
-import com.fenoxo.coc.zadenikt_java_port.util.Describer;
+import src.actors.Actor;
+import src.util.Describer;
 
 public enum Race {
   HUMAN("human"),
@@ -30,18 +30,21 @@ public enum Race {
   SEMI_MUTANT("somewhat human mutant"),
   MUTANT("corrupted mutant");
   
-  private String none, male, female, hermaphrodite;
+  private final String none;
+  private final String male;
+  private final String female;
+  private final String hermaphrodite;
 
-  private Race(String text) { 
+  Race(String text) {
     this.none = this.male = this.female = this.hermaphrodite = text; 
   }
   
-  private Race(String m, String f) {
+  Race(String m, String f) {
     this.none = this.male = m;
     this.female = this.hermaphrodite = f;
   }
   
-  private Race(String n, String m, String f, String h) {
+  Race(String n, String m, String f, String h) {
     this.none = n;
     this.male = m;
     this.female = f;
@@ -65,17 +68,12 @@ public enum Race {
   }
   
   public String getString(Gender g) {
-    switch(g) {
-    case MALE:
-      return this.getMale();
-    case FEMALE:
-      return this.getFemale();
-    case HERM:
-      return this.getHermaphrodite();
-    case NONE:
-    default:
-      return this.getGenderless();
-    }
+    return switch (g) {
+      case MALE -> this.getMale();
+      case FEMALE -> this.getFemale();
+      case HERM -> this.getHermaphrodite();
+      default -> this.getGenderless();
+    };
   }
   
   public static Race getRace(Actor a) {

@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public class Hair {
 	private Double length;
@@ -43,13 +43,13 @@ public class Hair {
         SILVER_BLONDE,
         SHINY_BLACK,
         // TF-only
-        BLACK_AND_YELLOW;
+        BLACK_AND_YELLOW
     }
     public enum Type {
         NORMAL,
         FEATHER,
         GHOST,
         GOO,
-        ANEMONE;
+        ANEMONE
     }
 }

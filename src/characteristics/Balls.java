@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public class Balls {
 	private Double size;
@@ -22,8 +22,7 @@ public class Balls {
 		this.size = size;
 		return this;
 	}
-	public Balls setCount(Integer count) {
+	public void setCount(Integer count) {
 		this.count = count;
-		return this;
 	}
 }

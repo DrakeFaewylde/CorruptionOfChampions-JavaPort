@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.util;
+package src.util;
 
 import java.io.File;
 
@@ -8,7 +8,7 @@ import javax.swing.filechooser.FileFilter;
 
 public class UIHelper
 {
-	private static JFileChooser fileChooser = new JFileChooser();
+	private static final JFileChooser fileChooser = new JFileChooser();
 
 	public static boolean confirm(String title, String message)
 	{

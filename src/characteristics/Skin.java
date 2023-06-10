@@ -1,4 +1,4 @@
-package com.fenoxo.coc.zadenikt_java_port.characteristics;
+package src.characteristics;
 
 public class Skin {
     protected Tone tone;
@@ -29,12 +29,12 @@ public class Skin {
         PALE_YELLOW,
         GRAYISH_BLUE,
         GREEN,
-        DARK_GREEN;
+        DARK_GREEN
     }
     public enum Type {
         NORMAL,
         FUR,
         SCALES,
-        GOO;
+        GOO
     }
 }

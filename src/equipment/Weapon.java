@@ -1,14 +1,15 @@
-package com.fenoxo.coc.zadenikt_java_port.equipment;
+package src.equipment;
 
-import com.fenoxo.coc.zadenikt_java_port.actors.Actor;
-import com.fenoxo.coc.zadenikt_java_port.characteristics.Perk;
+import src.equipment.Item;
+import src.actors.Actor;
+import src.characteristics.Perk;
 
 public class Weapon extends Item {
 	public static final Weapon FISTS = null;
 	
-	protected int attack;
-	protected Perk perk;
-	protected String verb;
+	protected final int attack;
+	protected final Perk perk;
+	protected final String verb;
 
 	public Weapon(String shortName, String name, String verb, String desc, int value, int attack) {
 		this(shortName, name, verb, desc, value, attack, Perk.NULL);
